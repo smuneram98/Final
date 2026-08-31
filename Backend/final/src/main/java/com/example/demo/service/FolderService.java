@@ -23,7 +23,12 @@ public class FolderService {
 
     public FolderModel findById(Long id){
         return folderRepository.findById(id)
-                .orElseThrow();//TO DO exepcion
+                .orElseThrow();//TODO exepcion
+    }
+
+    public FolderModel findByName(String name){
+        return folderRepository.findByName(name)
+                .orElseThrow(null);//TODO exepcion
     }
 
     
