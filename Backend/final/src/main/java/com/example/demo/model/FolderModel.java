@@ -15,7 +15,7 @@ public class FolderModel {
     @Column(nullable = false)
     private String foldername;
 
-    @OneToMany
+    @OneToMany(mappedBy = "folder")
     private List<FileModel> files;
 
     @OneToMany

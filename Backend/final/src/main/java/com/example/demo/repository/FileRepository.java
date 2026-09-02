@@ -10,7 +10,7 @@ import com.example.demo.model.TagModel;
 
 
 public interface FileRepository extends JpaRepository<FileModel,Long> {
-    Optional<FileModel> findByName(String filename);
-    boolean existByName(String filename);
+    Optional<FileModel> findByFilename(String filename);
+  //  boolean existByFilename(String filename);
     Optional<FileModel> findByTag(List<TagModel> tag);  
 }

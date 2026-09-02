@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
+import com.example.demo.exception.NotFoundException;
 import com.example.demo.model.FolderModel;
 import com.example.demo.repository.FolderRepository;
 
@@ -23,12 +24,12 @@ public class FolderService {
 
     public FolderModel findById(Long id){
         return folderRepository.findById(id)
-                .orElseThrow();//TODO exepcion
+                .orElseThrow(()-> new NotFoundException("Folder not found"));// exepcion
     }
 
-    public FolderModel findByName(String name){
-        return folderRepository.findByName(name)
-                .orElseThrow(null);//TODO exepcion
+    public FolderModel findByName(String foldername){
+        return folderRepository.findByFoldername(foldername)
+                .orElseThrow(()-> new NotFoundException("Folder not found"));// exepcion
     }
 
     

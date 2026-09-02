@@ -7,6 +7,6 @@ import java.util.Optional;
 import com.example.demo.model.FolderModel;
 
 public interface FolderRepository extends JpaRepository<FolderModel,Long> {
-    Optional<FolderModel> findByName(String name);
-    boolean existByName(String name);
+    Optional<FolderModel> findByFoldername(String foldername);
+   // boolean existByName(String foldername);
 }

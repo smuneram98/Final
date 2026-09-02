@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
+import com.example.demo.exception.NotFoundException;
 import com.example.demo.model.FileModel;
 import com.example.demo.model.FolderModel;
 import com.example.demo.model.TagModel;
@@ -21,7 +22,7 @@ public class FileService {
         Long folderId=file.getFolder().getId();
 
         FolderModel folder=folderRepository.findById(folderId)
-                    .orElseThrow(null);//TODO exepcion
+                    .orElseThrow(()-> new NotFoundException("Folder not found"));// exepcion
 
         file.setFolder(folder);
         file.getFilename();
@@ -34,17 +35,17 @@ public class FileService {
 
     public FileModel findById(Long id){
         return fileRepository.findById(id)
-                .orElseThrow(null);//TODO exepcion;
+                .orElseThrow(()-> new NotFoundException("File not found"));// exepcion;
     }
 
     public FileModel findByName(String filename){
-        return fileRepository.findByName(filename)
-                .orElseThrow(null);//TODO exepcion
+        return fileRepository.findByFilename(filename)
+                .orElseThrow(()-> new NotFoundException("File not found"));// exepcion
     }
 
     public FileModel findByTag(List<TagModel> etiqueta){
         return fileRepository.findByTag(etiqueta)
-               .orElseThrow(null);//TODO tags tuto
+               .orElseThrow(()-> new NotFoundException("No files with this tag"));// tags tuto
     }
 
     
