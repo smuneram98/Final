@@ -2,6 +2,7 @@ package com.example.demo.service;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.demo.exception.NotFoundException;
@@ -14,8 +15,13 @@ import com.example.demo.repository.FolderRepository;
 @Service
 public class FileService {
     
-    private FileRepository fileRepository;
-    private FolderRepository folderRepository;
+    private final FileRepository fileRepository;
+    private final FolderRepository folderRepository;
+
+    FileService(FileRepository fileRepository, FolderRepository folderRepository) {
+        this.fileRepository = fileRepository;
+        this.folderRepository = folderRepository;
+    }
 
     public FileModel save(FileModel file){
 
@@ -43,7 +49,12 @@ public class FileService {
                 .orElseThrow(()-> new NotFoundException("File not found"));// exepcion
     }
 
-    public FileModel findByTag(List<TagModel> etiqueta){
+  /*   public FileModel findByTag(List<TagModel> etiqueta){
+        return fileRepository.findByTag(etiqueta)
+               .orElseThrow(()-> new NotFoundException("No files with this tag"));// tags tuto
+    } */
+
+    public FileModel findByTag(TagModel etiqueta){
         return fileRepository.findByTag(etiqueta)
                .orElseThrow(()-> new NotFoundException("No files with this tag"));// tags tuto
     }

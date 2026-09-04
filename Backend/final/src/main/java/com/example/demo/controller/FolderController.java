@@ -28,16 +28,16 @@ public class FolderController {
         return folderService.findAll();
     }
 
-    @GetMapping("/{id}")
+  /*   @GetMapping("/{id}")
     public FolderModel findById(@PathVariable Long id){
         return folderService.findById(id);
-    }
+    } */
 
      //TODO multiples tipos de dato en un mismo endpoint investiguen
-   /*  @GetMapping("/{name}")
+    @GetMapping("/{name}")
     public FolderModel findByName(@PathVariable String name){
         return folderService.findByName(name);
-    } */
+    }
 
     
 }

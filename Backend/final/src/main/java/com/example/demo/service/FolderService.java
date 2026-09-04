@@ -2,6 +2,7 @@ package com.example.demo.service;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.demo.exception.NotFoundException;
@@ -11,7 +12,11 @@ import com.example.demo.repository.FolderRepository;
 @Service
 public class FolderService {
 
-    private FolderRepository folderRepository;
+    private final FolderRepository folderRepository;
+
+    FolderService(FolderRepository folderRepository) {
+        this.folderRepository = folderRepository;
+    }
 
     public FolderModel save(FolderModel folder){
 
