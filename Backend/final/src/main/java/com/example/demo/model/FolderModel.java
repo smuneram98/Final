@@ -2,6 +2,8 @@ package com.example.demo.model;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.*;
 
 @Entity
@@ -15,9 +17,11 @@ public class FolderModel {
     @Column(nullable = false)
     private String foldername;
 
+    @JsonIgnore 
     @OneToMany(mappedBy = "folder")
     private List<FileModel> files;
 
+    @JsonIgnore
     @OneToMany
     private List<FolderModel> folders;
 

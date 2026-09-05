@@ -31,7 +31,7 @@ public class FileService {
                     .orElseThrow(()-> new NotFoundException("Folder not found"));// exepcion
 
         file.setFolder(folder);
-        file.getFilename();
+        
         return fileRepository.save(file);               
     }
 
@@ -49,15 +49,15 @@ public class FileService {
                 .orElseThrow(()-> new NotFoundException("File not found"));// exepcion
     }
 
-  /*   public FileModel findByTag(List<TagModel> etiqueta){
-        return fileRepository.findByTag(etiqueta)
-               .orElseThrow(()-> new NotFoundException("No files with this tag"));// tags tuto
-    } */
-
-    public FileModel findByTag(TagModel etiqueta){
+    public FileModel findByTag(List<TagModel> etiqueta){
         return fileRepository.findByTag(etiqueta)
                .orElseThrow(()-> new NotFoundException("No files with this tag"));// tags tuto
     }
+
+  /*   public FileModel findByTag(TagModel etiqueta){
+        return fileRepository.findByTag(etiqueta)
+               .orElseThrow(()-> new NotFoundException("No files with this tag"));// tags tuto
+    } */
 
     
 

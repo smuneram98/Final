@@ -36,7 +36,7 @@ public class FileController {
     } */
 
     //TODO multiples tipos de dato en un mismo endpoint investiguen
-    @GetMapping("/name")
+    @GetMapping("/{name}")
     public FileModel findByName(@PathVariable String name){
         return fileService.findByName(name);
     }

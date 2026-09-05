@@ -14,13 +14,13 @@ public class FileModel {
     @Column(nullable = false)
     private String filename;
 
-   /*  @Column(nullable = true)
+    @Column(nullable = true)
     @Enumerated(EnumType.STRING)
-    private List<TagModel> tag; */
+    private List<TagModel> tag;
 
-     @Column(nullable = true)
+    /*  @Column(nullable = true)
     @Enumerated(EnumType.STRING)
-    private TagModel tag;
+    private TagModel tag; */
 
     @ManyToOne(optional = false)
     @JoinColumn(name = "folder_id",nullable = false)
@@ -45,13 +45,13 @@ public class FileModel {
         this.filename = filename;
     }
 
-   /*  public List<TagModel> getTag() {
+    public List<TagModel> getTag() {
         return tag;
     }
 
     public void setTag(List<TagModel> tag) {
         this.tag = tag;
-    } */
+    }
 
     public FolderModel getFolder() {
         return folder;
@@ -61,13 +61,13 @@ public class FileModel {
         this.folder = folder;
     }
 
-    public TagModel getTag() {
+  /*   public TagModel getTag() {
         return tag;
     }
 
     public void setTag(TagModel tag) {
         this.tag = tag;
-    }
+    } */
 
     
 

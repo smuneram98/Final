@@ -16,11 +16,12 @@ public interface FileRepository extends JpaRepository<FileModel,Long> {
   
     //TODO el archivo no existe, tiene nombre pero no contenido
     //Revisar query
-    /* @Query("SELECT e.filename FROM file"+
+    /* @Query("SELECT e.filename FROM file e"+
             "WHERE e.tag = :etiqueta" ) */
             
     //Optional<FileModel> findByTag(@Param("etiqueta") List<TagModel> tag); 
-     Optional<FileModel> findByTag(@Param("etiqueta") TagModel tag); 
+    Optional<FileModel> findByTag( List<TagModel> tag); 
+    // Optional<FileModel> findByTag(@Param("etiqueta") TagModel tag); 
      //TODO devuelve varios archivos entonces list??
 
 }
