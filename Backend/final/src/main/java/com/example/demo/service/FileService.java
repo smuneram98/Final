@@ -49,10 +49,22 @@ public class FileService {
                 .orElseThrow(()-> new NotFoundException("File not found"));// exepcion
     }
 
-    public FileModel findByTag(List<TagModel> etiqueta){
+    public List<String> findByTag(List<String> etiqueta){
         return fileRepository.findByTag(etiqueta)
                .orElseThrow(()-> new NotFoundException("No files with this tag"));// tags tuto
     }
+
+    //OK
+   /*  public List<FileModel> findByTag(List<String> etiqueta){
+        return fileRepository.findByTag(etiqueta)
+               .orElseThrow(()-> new NotFoundException("No files with this tag"));// tags tuto
+    } */
+
+
+   /*  public FileModel findByTag(List<TagModel> etiqueta){
+        return fileRepository.findByTag(etiqueta)
+               .orElseThrow(()-> new NotFoundException("No files with this tag"));// tags tuto
+    } */
 
   /*   public FileModel findByTag(TagModel etiqueta){
         return fileRepository.findByTag(etiqueta)

@@ -40,10 +40,15 @@ public class FileController {
     public FileModel findByName(@PathVariable String name){
         return fileService.findByName(name);
     }
-    /* 
-    @GetMapping
-    public FileModel findByTag(@PathVariable List<TagModel> etiqueta){
+    
+    @GetMapping("/buscar/{tag}")
+    public List<String> findByTag(@PathVariable List<String> etiqueta){
         return fileService.findByTag(etiqueta);
-    } */
-
+    }
+    
+    /* @GetMapping("/buscar/{tag}")
+    public List<FileModel> findByTag(@PathVariable List<String> etiqueta){
+        return fileService.findByTag(etiqueta);
+    }
+ */
 }

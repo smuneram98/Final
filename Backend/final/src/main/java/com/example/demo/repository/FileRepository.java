@@ -14,14 +14,20 @@ import com.example.demo.model.TagModel;
 public interface FileRepository extends JpaRepository<FileModel,Long> {
     Optional<FileModel> findByFilename(String filename);
   
-    //TODO el archivo no existe, tiene nombre pero no contenido
     //Revisar query
     /* @Query("SELECT e.filename FROM file e"+
             "WHERE e.tag = :etiqueta" ) */
-            
-    //Optional<FileModel> findByTag(@Param("etiqueta") List<TagModel> tag); 
-    Optional<FileModel> findByTag( List<TagModel> tag); 
-    // Optional<FileModel> findByTag(@Param("etiqueta") TagModel tag); 
-     //TODO devuelve varios archivos entonces list??
+/*     @Query("SELECT e.filename from file e"+
+           "WHERE :etiqueta =ANY (e.tag)" ) */
+     @Query("SELECT file.filename from file WHERE 'PHOTO' =ANY (file.tag)")
+     Optional<List<String>> findByTag( List<String> tag); 
+     //Optional<List<String>> findByTag(@Param("etiqueta") List<String> tag); 
+
+
+     // el archivo no existe, tiene nombre pero no contenido
+
+     /* @Query("SELECT * from file e WHERE :etiqueta =ANY (e.tag)" )
+     Optional<List<FileModel>> findByTag(@Param("etiqueta") List<String> tag);  */
+     //devuelve varios archivos entonces list??
 
 }
