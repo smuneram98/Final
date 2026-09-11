@@ -41,10 +41,14 @@ public class FileController {
         return fileService.findByName(name);
     }
     
-    @GetMapping("/buscar/{tag}")
-    public List<String> findByTag(@PathVariable List<String> etiqueta){
+    @GetMapping("/buscar/{etiqueta}")
+    public List<FileModel> findByTag(@PathVariable List<String> etiqueta){
         return fileService.findByTag(etiqueta);
     }
+   /*  @GetMapping("/buscar/{etiqueta}")
+    public List<String> findByTag(@PathVariable List<String> etiqueta){
+        return fileService.findByTag(etiqueta);
+    } */
     
     /* @GetMapping("/buscar/{tag}")
     public List<FileModel> findByTag(@PathVariable List<String> etiqueta){

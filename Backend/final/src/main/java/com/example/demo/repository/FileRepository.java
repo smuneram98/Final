@@ -13,14 +13,24 @@ import com.example.demo.model.TagModel;
 
 public interface FileRepository extends JpaRepository<FileModel,Long> {
     Optional<FileModel> findByFilename(String filename);
-  
+
+     @Query("SELECT f from file f WHERE f.filename = :nombre")
+     Optional<FileModel> findByFilena(@Param("nombre") String filename);
     //Revisar query
     /* @Query("SELECT e.filename FROM file e"+
             "WHERE e.tag = :etiqueta" ) */
 /*     @Query("SELECT e.filename from file e"+
            "WHERE :etiqueta =ANY (e.tag)" ) */
-     @Query("SELECT file.filename from file WHERE 'PHOTO' =ANY (file.tag)")
-     Optional<List<String>> findByTag( List<String> tag); 
+     //@Query("SELECT f from file f WHERE :etiqueta =ANY (f.tag)")
+     Optional<List<FileModel>> findByTag(@Param("etiqueta") List<String> tag); 
+
+     //Optional<List<String>> findByTagIn(List<String> tag); 
+   // Optional<List<FileModel>> findByTagLike(List<String> tag);
+    
+     //Este funciona maso
+     /* Optional<List<FileModel>> findByTagIn(List<String> tag); */ 
+    
+    
      //Optional<List<String>> findByTag(@Param("etiqueta") List<String> tag); 
 
 
