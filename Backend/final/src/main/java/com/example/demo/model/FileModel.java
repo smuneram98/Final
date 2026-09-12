@@ -19,7 +19,7 @@ public class FileModel {
     private List<TagModel> tag; */
     
     // @Enumerated(EnumType.STRING)
-    @Column(nullable = true)
+    @Column(nullable = false)
     private List<String> tag;
     
     @ManyToOne(optional = false)
