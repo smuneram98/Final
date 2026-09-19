@@ -1,6 +1,7 @@
 package com.example.demo.service;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -31,6 +32,10 @@ public class FileService {
                     .orElseThrow(()-> new NotFoundException("Folder not found"));// exepcion
 
         file.setFolder(folder);
+
+        List <String> tags=file.getTag().stream().map(String::toLowerCase).collect(Collectors.toList());
+
+        file.setTag(tags);
         
         return fileRepository.save(file);               
     }
