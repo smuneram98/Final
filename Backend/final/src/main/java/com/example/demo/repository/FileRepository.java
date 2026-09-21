@@ -21,8 +21,10 @@ public interface FileRepository extends JpaRepository<FileModel,Long> {
             "WHERE e.tag = :etiqueta" ) */
 /*     @Query("SELECT e.filename from file e"+
            "WHERE :etiqueta =ANY (e.tag)" ) */
-   //  @Query("SELECT f from FileModel f WHERE LOWER(:etiqueta)=ANY (f.tag)")
+     @Query("SELECT f from FileModel f WHERE LOWER(:etiqueta) IN (f.tag)")
+     //@Query("SELECT f from FileModel f WHERE LOWER(:etiqueta)=ANY (select fe.tag from FileModel fe)")
      Optional<List<FileModel>> findByTag(@Param("etiqueta") List<String> tag); 
+     
 
      //Optional<List<String>> findByTagIn(List<String> tag); 
    // Optional<List<FileModel>> findByTagLike(List<String> tag);
