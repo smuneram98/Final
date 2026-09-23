@@ -69,6 +69,10 @@ public class FileService {
     
 
     //OK
+/*     public List<FileModel> findByTag(String etiqueta){
+        return fileRepository.findByTag(etiqueta)
+               .orElseThrow(()-> new NotFoundException("No files with this tag"));// tags tuto
+    } */
     public List<FileModel> findByTag(List<String> etiqueta){
         return fileRepository.findByTag(etiqueta)
                .orElseThrow(()-> new NotFoundException("No files with this tag"));// tags tuto
