@@ -23,7 +23,7 @@ public interface FileRepository extends JpaRepository<FileModel,Long> {
 /*     @Query("SELECT e from FileModel e"+
            "WHERE :etiqueta =ANY (e.tag)" ) */
 
-     @Query("SELECT f from FileModel f JOIN f.tag t WHERE t=:etiqueta")
+     @Query("SELECT f from FileModel f JOIN f.tag t WHERE t=LOWER(:etiqueta)")
   /*    @Query("SELECT f from FileModel f WHERE (:etiqueta) MEMBER OF f.tag") */
      //@Query("Select f from FileModel f where (f.tag) LIKE %:etiqueta%")
      //@Query("SELECT f from FileModel f WHERE LOWER(:etiqueta)=ANY (select fe.tag from FileModel fe)")
