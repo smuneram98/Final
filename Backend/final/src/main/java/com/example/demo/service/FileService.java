@@ -54,54 +54,19 @@ public class FileService {
                 .orElseThrow(()-> new NotFoundException("File not found"));// exepcion
     }
 
-/*     public List<String> findByTag(List<String> etiqueta){
-        return fileRepository.findByTag(etiqueta)
-               .orElseThrow(()-> new NotFoundException("No files with this tag"));// tags tuto
-    } */
-   /*  public List<String> findByTag(List<String> etiqueta){
-        return fileRepository.findByTagIn(etiqueta)
-               .orElseThrow(()-> new NotFoundException("No files with this tag"));// tags tuto
-    } */
- /*    public List<FileModel> findByTag(List<String> etiqueta){
-        return fileRepository.findByTagIn(etiqueta)
-               .orElseThrow(()-> new NotFoundException("No files with this tag"));// tags tuto
-    } */
-    
-
-    //OK
-/*     public List<FileModel> findByTag(String etiqueta){
-        return fileRepository.findByTag(etiqueta)
-               .orElseThrow(()-> new NotFoundException("No files with this tag"));// tags tuto
-    } */
     public List<FileModel> findByTag(String etiqueta){
         return fileRepository.findByTag(etiqueta)
                .orElseThrow(()-> new NotFoundException("No files with this tag"));// tags tuto
     }
-    /* public List<FileModel> findByTag(List<String> etiqueta){
-        return fileRepository.findByTag(etiqueta)
-               .orElseThrow(()-> new NotFoundException("No files with this tag"));// tags tuto
-    } */
+
     public List<FileModel> findByTagsAnd(String etiqueta1, String etiqueta2){
         return fileRepository.findByTagsAnd(etiqueta1,etiqueta2)
                .orElseThrow(()-> new NotFoundException("No files with this tag"));// tags tuto
     }
+    
     public List<FileModel> findByTagsOr(String etiqueta1, String etiqueta2){
         return fileRepository.findByTagsOr(etiqueta1,etiqueta2)
                .orElseThrow(()-> new NotFoundException("No files with this tag"));// tags tuto
     }
-
-
-   /*  public FileModel findByTag(List<TagModel> etiqueta){
-        return fileRepository.findByTag(etiqueta)
-               .orElseThrow(()-> new NotFoundException("No files with this tag"));// tags tuto
-    } */
-
-  /*   public FileModel findByTag(TagModel etiqueta){
-        return fileRepository.findByTag(etiqueta)
-               .orElseThrow(()-> new NotFoundException("No files with this tag"));// tags tuto
-    } */
-
-    
-
 
 }
