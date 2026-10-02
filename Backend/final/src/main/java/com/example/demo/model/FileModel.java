@@ -14,11 +14,6 @@ public class FileModel {
     @Column(nullable = false)
     private String filename;
 
-   /*  @Column(nullable = true)
-    @Enumerated(EnumType.STRING)
-    private List<TagModel> tag; */
-    
-    // @Enumerated(EnumType.STRING)
     @Column(nullable = false)
     private List<String> tag;
     
@@ -45,16 +40,6 @@ public class FileModel {
         this.filename = filename;
     }
 
-  /*   public List<TagModel> getTag() {
-        return tag;
-    }
-
-    public void setTag(List<TagModel> tag) {
-        this.tag = tag;
-    } */
-
-        
-
     public FolderModel getFolder() {
         return folder;
     }
@@ -70,17 +55,5 @@ public class FileModel {
     public void setTag(List<String> tag) {
         this.tag = tag;
     }
-
-  /*   public TagModel getTag() {
-        return tag;
-    }
-
-    public void setTag(TagModel tag) {
-        this.tag = tag;
-    } */
-
-    
-
-
     
 }
