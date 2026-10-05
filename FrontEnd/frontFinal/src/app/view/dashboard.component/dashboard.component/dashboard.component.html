@@ -1,1 +1,22 @@
-<p>dashboard.component works!</p>
+<div class="barras-busqueda">
+    <div class="etiqueta">
+        <span class="search-icon">🔍</span>
+        <label for="etiquetas">Buscar por categoría</label>
+        <input 
+            id=etiquetas 
+            type="text"
+            [(ngModel)]="categoria"
+            (input)="busquedaTag()"
+            placeholder="Una o más etiquetas">
+    </div>
+
+    <div class="nombre">
+        <span class="search-icon">🔍</span>
+        <label for="bsqNombre">Buscar por nombre</label>
+        <input 
+            id=bsqNombre
+            type="text" 
+            [(ngModel)]="busqueda" 
+            (input)="busquedaNameFiles()">
+    </div>
+</div>

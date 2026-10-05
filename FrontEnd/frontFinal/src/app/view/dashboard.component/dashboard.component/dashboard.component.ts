@@ -12,8 +12,12 @@ import { forkJoin } from 'rxjs';
   styleUrl: './dashboard.component.css',
 })
 export class DashboardComponent implements OnInit{
-  folders:FolderModel[]=[];
-  files:FileModel[]=[];
+  foldersTodo:FolderModel[]=[];
+  filesTodo:FileModel[]=[];
+  todo:any[]=[];
+  resultados:any[]=[];
+  busqueda:string='';
+  categoria:string='';
 
   constructor(private folderService:FolderService, private fileService:FileService){}
 
@@ -29,11 +33,32 @@ export class DashboardComponent implements OnInit{
       next: (res)=>{
         console.log('folders',res.folders);
         console.log('files',res.files);
-        this.folders=res.folders;
-        this.files=res.files;
+        this.foldersTodo=res.folders;
+        this.filesTodo=res.files;
       }
     });
   }
+
+  busquedaNameFiles(){
+    const bus=this.busqueda.toLowerCase();
+    this.resultados=this.filesTodo.filter(item=>
+      item.filename.toLowerCase().includes(bus)
+    );
+  }
+
+  busquedaNameFolders(){
+    const bus=this.busqueda.toLowerCase();
+    this.resultados=this.foldersTodo.filter(item=>
+      item.foldername.toLowerCase().includes(bus)
+    );
+  }
+
+  busquedaTag(){
+    this.resultados=this.filesTodo.filter(item=>
+      item.tag.includes(this.categoria)
+    );
+  }
+
 
   //poner la busqueda y las etiquetas
 }
