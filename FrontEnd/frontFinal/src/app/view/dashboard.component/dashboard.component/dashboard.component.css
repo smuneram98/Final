@@ -1,0 +1,112 @@
+.dashboard-container {
+    padding: 30px;
+    background-color: #f8fafc;
+    font-family: 'Segoe UI', Roboto, sans-serif;
+}
+
+/* Header */
+.header-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.title-area {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.title-area h1 {
+    color: #334155;
+    font-size: 1.8rem;
+    margin: 0;
+}
+
+.barras-busqueda{
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.etiqueta {
+    background: white;
+    border: 1px solid #e2e8f0;
+    border-radius: 25px;
+    padding: 8px 20px;
+    display: flex;
+    align-items: center;
+    width: 300px;
+    transition: border-color 0.2s;
+}
+
+.etiqueta:focus-within {
+    border-color: #3b82f6;
+}
+
+.etiqueta label {
+    font-size: 0.85rem;
+    color: #94a3b8;
+    white-space: nowrap;
+    margin-right: 8px;
+    font-weight: 500;
+}
+
+.etiqueta input {
+    border: none;
+    outline: none;
+    width: 100%;
+    color: #64748b;
+    background: transparent;
+}
+
+.etiqueta input::-webkit-outer-spin-button,
+.etiqueta input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Para Firefox */
+.etiqueta input[type=number] {
+    -moz-appearance: textfield;
+    appearance: textfield; /* Estándar actual */
+}
+
+.nombre {
+    background: white;
+    border: 1px solid #e2e8f0;
+    border-radius: 25px;
+    padding: 8px 20px;
+    display: flex;
+    align-items: center;
+    width: 300px;
+}
+
+.nombre label {
+    font-size: 0.85rem;
+    color: #94a3b8;
+    white-space: nowrap;
+    margin-right: 8px;
+    font-weight: 500;
+}
+
+.nombre input {
+    border: none;
+    outline: none;
+    width: 100%;
+    padding-left: 10px;
+    color: #64748b;
+}
+
+.nombre:focus-within {
+    border-color: #3b82f6;
+}
+
+div [name="carta"]{
+    background-color: rgb(97, 183, 183);
+}
+
+div [name="carta"]:hover{
+    background-color: aquamarine;
+}

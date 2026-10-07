@@ -4,25 +4,28 @@ import { FileModel } from '../../../models/file.model';
 import { FolderService } from '../../../services/folder.service/folder.service';
 import { FileService } from '../../../services/file.service/file.service';
 import { forkJoin } from 'rxjs';
+import { ChangeDetectorRef } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-dashboard.component',
-  imports: [],
+  imports: [CommonModule,FormsModule],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.css',
 })
 export class DashboardComponent implements OnInit{
   foldersTodo:FolderModel[]=[];
   filesTodo:FileModel[]=[];
-  todo:any[]=[];
+ // todo:any[]=[];
   resultados:any[]=[];
   busqueda:string='';
   categoria:string='';
 
-  constructor(private folderService:FolderService, private fileService:FileService){}
+  constructor(private folderService:FolderService, private fileService:FileService, private cDRef:ChangeDetectorRef){}
 
   ngOnInit(): void {
-    
+    this.load();
   }
 
   load(){
@@ -35,6 +38,8 @@ export class DashboardComponent implements OnInit{
         console.log('files',res.files);
         this.foldersTodo=res.folders;
         this.filesTodo=res.files;
+
+        this.cDRef.detectChanges();
       }
     });
   }
@@ -60,5 +65,4 @@ export class DashboardComponent implements OnInit{
   }
 
 
-  //poner la busqueda y las etiquetas
 }
