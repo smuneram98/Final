@@ -63,6 +63,6 @@ export class DashboardComponent implements OnInit{
       item.tag.includes(this.categoria)
     );
   }
-
+//TODO falta lo de las etiquetas y busqueda
 
 }

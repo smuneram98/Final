@@ -11,6 +11,7 @@ import com.example.demo.model.FileModel;
 
 @RestController
 @RequestMapping("/api/file")
+@CrossOrigin(origins = "http://localhost:4200")
 public class FileController {
     
 //TODO la etiquta da problemas mirar

@@ -10,6 +10,7 @@ import com.example.demo.model.FolderModel;
 
 @RestController
 @RequestMapping("/api/folder")
+@CrossOrigin(origins = "http://localhost:4200")
 public class FolderController {
 
     private final FolderService folderService;
