@@ -18,7 +18,7 @@ export class DashboardComponent implements OnInit{
   foldersTodo:FolderModel[]=[];
   filesTodo:FileModel[]=[];
  // todo:any[]=[];
-  resultados:any[]=[];
+  resultados:FileModel[]=[];
   busqueda:string='';
   categoria:string='';
 
@@ -50,19 +50,19 @@ export class DashboardComponent implements OnInit{
       item.filename.toLowerCase().includes(bus)
     );
   }
-
-  busquedaNameFolders(){
-    const bus=this.busqueda.toLowerCase();
-    this.resultados=this.foldersTodo.filter(item=>
-      item.foldername.toLowerCase().includes(bus)
-    );
-  }
-
+  
   busquedaTag(){
     this.resultados=this.filesTodo.filter(item=>
       item.tag.includes(this.categoria)
     );
   }
-//TODO falta lo de las etiquetas y busqueda
-
+  //TODO falta lo de las etiquetas y busqueda
+  
+  
+  /*   busquedaNameFolders(){
+      const bus=this.busqueda.toLowerCase();
+      this.resultados=this.foldersTodo.filter(item=>
+        item.foldername.toLowerCase().includes(bus)
+      );
+    } */
 }
