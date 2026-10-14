@@ -26,10 +26,10 @@ public class FileService {
 
     public FileModel save(FileModel file){
 
-        Long folderId=file.getFolder().getId();
+        String folderName=file.getFolder().getFoldername();
 
-        FolderModel folder=folderRepository.findById(folderId)
-                    .orElseThrow(()-> new NotFoundException("Folder not found"));// exepcion
+        FolderModel folder=folderRepository.findByFoldername(folderName)
+                    .orElseThrow(()-> new NotFoundException("Folder not found"));
 
         file.setFolder(folder);
 
