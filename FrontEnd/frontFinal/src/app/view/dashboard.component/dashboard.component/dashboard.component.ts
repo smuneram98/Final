@@ -18,6 +18,7 @@ export class DashboardComponent implements OnInit{
   foldersTodo:FolderModel[]=[];
   filesTodo:FileModel[]=[];
  // todo:any[]=[];
+  categorias:any[]=[];
   resultados:FileModel[]=[];
   busqueda:string='';
   categoria:string='';
@@ -26,6 +27,8 @@ export class DashboardComponent implements OnInit{
 
   ngOnInit(): void {
     this.load();
+    //this.etiquetas();
+   // console.log('categorias',this.categorias);
   }
 
   load(){
@@ -39,9 +42,20 @@ export class DashboardComponent implements OnInit{
         this.foldersTodo=res.folders;
         this.filesTodo=res.files;
 
+         this.etiquetas();
+         console.log('categorias',this.categorias);
+
         this.cDRef.detectChanges();
       }
     });
+  }
+
+  etiquetas(){
+    for(let i=0;i<this.filesTodo.length;i++){
+      if(!this.categorias.includes(this.filesTodo[i].tag)){
+        this.categorias[i]=this.filesTodo[i].tag
+      }
+    }
   }
 
   busquedaNameFiles(){
