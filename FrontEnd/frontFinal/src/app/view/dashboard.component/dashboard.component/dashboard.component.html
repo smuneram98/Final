@@ -16,22 +16,28 @@
                         placeholder="Una o más etiquetas">
                 </div> -->
 
-                <select class="form-select" aria-label="Default select example">
-                    <option selected>Categorías</option>
-                    <option value="1">One</option>
-                    <option value="2">Two</option>
-                    <option value="3">Three</option>
+          <!--       <select class="form-select" aria-label="Default select example">
+                    <option disabled selected value="">Categorías</option>
+                    @for(genero of categorias; track $index){
+                        <option value="{{genero}}">{{genero}}</option>
+                    }
+                </select> -->
+
+                <select class="nombre" name="generos" [(ngModel)]="categoria" (input)="busquedaTag()">
+                    <option disabled selected value="">Categorías</option>
+                    <option [value]="genero" *ngFor="let genero of categorias">{{genero}}</option>
                 </select>
 
             
                 <div class="nombre">
                     <span class="search-icon">🔍</span>
-                    <label for="bsqNombre">Buscar por nombre</label>
+                    <!-- <label for="bsqNombre">Buscar por nombre</label> -->
                     <input 
                         id=bsqNombre
                         type="text" 
                         [(ngModel)]="busqueda" 
-                        (input)="busquedaNameFiles()">
+                        (input)="busquedaNameFiles()"
+                        placeholder="Buscar por nombre">
                 </div>
             </div>
      </div>

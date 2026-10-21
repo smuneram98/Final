@@ -27,8 +27,8 @@ export class DashboardComponent implements OnInit{
 
   ngOnInit(): void {
     this.load();
-    //this.etiquetas();
-   // console.log('categorias',this.categorias);
+    this.etiquetas();
+    console.log('categorias',this.categorias);
   }
 
   load(){
@@ -52,8 +52,10 @@ export class DashboardComponent implements OnInit{
 
   etiquetas(){
     for(let i=0;i<this.filesTodo.length;i++){
-      if(!this.categorias.includes(this.filesTodo[i].tag)){
-        this.categorias[i]=this.filesTodo[i].tag
+      for(let j=0;j<this.filesTodo[i].tag.length;j++){
+        if(!this.categorias.includes(this.filesTodo[i].tag[j])){
+          this.categorias.push(this.filesTodo[i].tag[j]);
+        }
       }
     }
   }
