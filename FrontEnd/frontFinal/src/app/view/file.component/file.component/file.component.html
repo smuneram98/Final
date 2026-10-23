@@ -1,4 +1,4 @@
-
+<!-- 
 <form class="formulario">
     <h3>Datos de la película</h3>
     <div class="mb-3">
@@ -8,6 +8,7 @@
             type="text"
             class="form-control"
             [(ngModel)]="titulo"
+            name="titulo"
             >
     </div>
     <div class="mb-3">
@@ -17,16 +18,46 @@
             type="text"
             class="form-control"
             [(ngModel)]="categorias"
+            name="categorias"
             >
     </div>
     <div class="mb-3"> 
         <label for="carpeta" class="form-label">Ingrese la carpeta</label>
-        <input 
-            id="carpeta"
-            type="text"
-            class="form-control"
-            [(ngModel)]="carpeta"
-            >
+        <select name="carpeta" [(ngModel)]="carpeta" class="form-control">
+            <option disabled selected value="">Carpetas</option>
+            <option [value]="carpeta" *ngFor="let carpeta of carpetas">{{carpeta}}</option>
+        </select>
     </div>
     <button type="submit" class="btn btn-primary" (click)="saveFile()">Crear</button>
+</form>
+ -->
+<form [formGroup]="addMovie" (ngSubmit)="saveFile()">
+
+    <div class="mb-3">
+        <label for="titulo" class="form-label">Ingrese la carpeta</label>
+        <input 
+            id="titulo"
+            type="text"
+            class="form-control"
+            formControlName="titulo" >
+
+    </div>
+    <div class="mb-3">
+        <label for="categorias" class="form-label">Ingrese la carpeta</label>
+        <input 
+            id="categorias"
+            type="text"
+            class="form-control"
+            formControlName="categoria" >
+
+    </div>
+    <div class="mb-3">
+        <label for="carpeta" class="form-label">Ingrese la carpeta</label>
+        <select name="carpeta" [(ngModel)]="carpeta" class="form-control">
+            <option disabled selected value="">Carpetas</option>
+            <option [value]="carpeta" *ngFor="let carpeta of carpetas">{{carpeta}}</option>
+        </select>
+
+    </div>
+    <button type="submit" class="btn btn-primary">Crear</button>
 </form>
