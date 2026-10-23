@@ -27,8 +27,8 @@ export class DashboardComponent implements OnInit{
 
   ngOnInit(): void {
     this.load();
-    this.etiquetas();
-    console.log('categorias',this.categorias);
+    /* this.etiquetas();
+    console.log('categorias',this.categorias); */
   }
 
   load(){
@@ -41,6 +41,7 @@ export class DashboardComponent implements OnInit{
         console.log('files',res.files);
         this.foldersTodo=res.folders;
         this.filesTodo=res.files;
+        this.resultados=this.filesTodo;
 
          this.etiquetas();
          console.log('categorias',this.categorias);

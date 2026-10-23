@@ -23,11 +23,10 @@
                     }
                 </select> -->
 
-                <select class="nombre" name="generos" [(ngModel)]="categoria" (input)="busquedaTag()">
+                <select class="nombre" name="generos" [(ngModel)]="categoria" (click)="busquedaTag()">
                     <option disabled selected value="">Categorías</option>
                     <option [value]="genero" *ngFor="let genero of categorias">{{genero}}</option>
                 </select>
-
             
                 <div class="nombre">
                     <span class="search-icon">🔍</span>

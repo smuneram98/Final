@@ -6,21 +6,27 @@
         <input 
             id="titulo"
             type="text"
-            class="form-control">
+            class="form-control"
+            [(ngModel)]="titulo"
+            >
     </div>
     <div class="mb-3">
         <label for="categorias" class="form-label">Ingrese las categorías</label>
         <input 
             id="categorias"
             type="text"
-            class="form-control">
+            class="form-control"
+            [(ngModel)]="categorias"
+            >
     </div>
     <div class="mb-3"> 
         <label for="carpeta" class="form-label">Ingrese la carpeta</label>
         <input 
             id="carpeta"
             type="text"
-            class="form-control">
+            class="form-control"
+            [(ngModel)]="carpeta"
+            >
     </div>
-    <button type="submit" class="btn btn-primary">Crear</button>
+    <button type="submit" class="btn btn-primary" (click)="saveFile()">Crear</button>
 </form>
