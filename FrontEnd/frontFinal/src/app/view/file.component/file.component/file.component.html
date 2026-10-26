@@ -34,7 +34,7 @@
 <form [formGroup]="addMovie" (ngSubmit)="saveFile()">
 
     <div class="mb-3">
-        <label for="titulo" class="form-label">Ingrese la carpeta</label>
+        <label for="titulo" class="form-label">Ingrese el titulo</label>
         <input 
             id="titulo"
             type="text"
@@ -43,7 +43,7 @@
 
     </div>
     <div class="mb-3">
-        <label for="categorias" class="form-label">Ingrese la carpeta</label>
+        <label for="categorias" class="form-label">Ingrese las categorias</label>
         <input 
             id="categorias"
             type="text"
@@ -53,7 +53,7 @@
     </div>
     <div class="mb-3">
         <label for="carpeta" class="form-label">Ingrese la carpeta</label>
-        <select name="carpeta" [(ngModel)]="carpeta" class="form-control">
+        <select name="carpeta" formControlName="carpeta" class="form-control">
             <option disabled selected value="">Carpetas</option>
             <option [value]="carpeta" *ngFor="let carpeta of carpetas">{{carpeta}}</option>
         </select>

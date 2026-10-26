@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { FileService } from '../../../services/file.service/file.service';
 import { FileModel } from '../../../models/file.model';
-import { FormsModule, FormGroup, FormControl } from '@angular/forms';
+import { FormsModule, FormGroup, FormControl, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { ChangeDetectorRef } from '@angular/core';
 
 @Component({
   selector: 'app-file.component',
-  imports: [FormsModule,CommonModule],
+  imports: [FormsModule,CommonModule,ReactiveFormsModule],
   templateUrl: './file.component.html',
   styleUrl: './file.component.css',
 })
@@ -54,13 +54,14 @@ export class FileComponent implements OnInit{
   }
 
   saveFile(){
-    const{titulo,categorias,carpeta}=this.addMovie.value;
+    //const{titulo,categorias,carpeta}=this.addMovie.value;
+    this.newFile=this.addMovie.value;
     this.fileService.createFile(this.newFile).subscribe(data=>{
       //this.loadFiles();
-      this.newFile.filename=titulo;
+/*       this.newFile.filename=titulo;
       this.newFile.folder.foldername=carpeta;
       this.newFile.tag=categorias;
-      this.newFile= new FileModel();
+      this.newFile= new FileModel(); */
     });
   }
 }
