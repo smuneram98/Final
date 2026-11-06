@@ -28,10 +28,10 @@
             <option [value]="carpeta" *ngFor="let carpeta of carpetas">{{carpeta}}</option>
         </select>
     </div>
-    <button type="submit" class="btn btn-primary" (click)="saveFile()">Crear</button>
+    <button type="submit" class="btn btn-primary" (click)="addFile()">Crear</button>
 </form>
  -->
-<form [formGroup]="addMovie" (ngSubmit)="saveFile()">
+ <form [formGroup]="addMovie" (ngSubmit)="saveFile()">
 
     <div class="mb-3">
         <label for="titulo" class="form-label">Ingrese el titulo</label>
@@ -48,7 +48,7 @@
             id="categorias"
             type="text"
             class="form-control"
-            formControlName="categoria" >
+            formControlName="categorias" >
 
     </div>
     <div class="mb-3">
@@ -60,4 +60,4 @@
 
     </div>
     <button type="submit" class="btn btn-primary">Crear</button>
-</form>
+</form> 

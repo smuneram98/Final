@@ -21,6 +21,7 @@ public class FileController {
         this.fileService = fileService;
     }
 
+    @CrossOrigin(origins = "http://localhost:4200")
     @PostMapping
     public FileModel create(@RequestBody FileModel file){
         return fileService.save(file);

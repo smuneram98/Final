@@ -31,6 +31,22 @@ export class FileService {
     return this.http.get<FileModel[]>(`${this.apiURL}/buscaror?etiqueta1=${tag1}&etiqueta2=${tag2}`);
   }
 
+ /*  createCORSRequest(method,url){
+    var xhr=new XMLHttpRequest();
+    if("withCredentials" in xhr){
+      xhr.open(method,url,true);
+    }
+    return xhr;
+  } */
+
+  /* makeCORSRequest(){
+    var url="http://localhost:8080/api/file";
+
+    var xhr=this.createCORSRequest('POST',url);
+
+    xhr.send();
+  } */
+
   /* getFilesAnd(tag1:String,tag2:String):Observable<FileModel[]>{
     return this.http.get<FileModel[]>(`${this.apiURL}/buscarand?etiqueta1=${tag1}&etiqueta2=${tag2}`);
   } */

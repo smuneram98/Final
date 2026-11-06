@@ -18,6 +18,11 @@ export class FileComponent implements OnInit{
   /* titulo:string="";
   carpeta:string="";
   categorias:string[]=[]; */
+  id:number=0;
+  titulo:string='';
+  categorias:string[]=[];
+  carpeta:string='';
+
   addMovie:FormGroup;
   
   constructor(private fileService:FileService,private cDRef:ChangeDetectorRef){
@@ -30,17 +35,13 @@ export class FileComponent implements OnInit{
 
   ngOnInit(): void {
     this.loadFiles();
-   // this.folders();
   }
 
   loadFiles(){
     this.fileService.getFiles().subscribe(data=>{
-      //console.log('files',data);
       this.files=data;
-
-       this.folders();
-
-       this.cDRef.detectChanges();
+      this.folders();
+      this.cDRef.detectChanges();
     });
    
   }
@@ -53,15 +54,38 @@ export class FileComponent implements OnInit{
     }
   }
 
+  /* addFile(){
+    let file=new FileModel();
+    file.id=this.id;
+    file.filename=this.titulo;
+    file.folder.foldername=this.carpeta;
+    file.tag=this.categorias;
+    console.log(file);
+  } */
+
   saveFile(){
     //const{titulo,categorias,carpeta}=this.addMovie.value;
-    this.newFile=this.addMovie.value;
-    this.fileService.createFile(this.newFile).subscribe(data=>{
+    this.newFile.id=0;
+    this.newFile.tag=this.addMovie.value.categorias;
+    this.newFile.filename=this.addMovie.value.titulo;
+    this.newFile.folder=this.addMovie.value.carpeta; 
+    
+    console.log(this.newFile);
+
+    this.fileService.createFile(this.newFile).subscribe(
+      res => console.log(res)
+    );
+    //this.newFile=this.addMovie.value;
+    //this.fileService.createFile(this.newFile).subscribe(data=>{
       //this.loadFiles();
 /*       this.newFile.filename=titulo;
       this.newFile.folder.foldername=carpeta;
       this.newFile.tag=categorias;
       this.newFile= new FileModel(); */
-    });
+   // });
   }
+
+
+  
+
 }
